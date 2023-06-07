@@ -1,0 +1,43 @@
+package com.java.assessment;
+
+import java.util.Scanner;
+
+import com.java.assessment.question1.ShapImpl;
+import com.java.assessment.question2.Child;
+import com.java.assessment.question3.Demo;
+import com.java.assessment.question3.NegativeNumException;
+import com.java.assessment.question4.BankServer;
+
+public class MainClass {
+
+	public static void main(String[] args) throws NegativeNumException {
+		
+		//Question 1
+		ShapImpl shapImpl = new ShapImpl();
+		shapImpl.circle(5);
+		shapImpl.triangle(1,2, 3);
+		
+		//Question 2
+		Child child= new Child();
+		
+		
+		//Question 3
+		Demo demo=new Demo();
+		demo.demo(-2);
+		
+		
+		//Question 4
+		BankServer bnk = new BankServer();
+		Scanner myObj = new Scanner(System.in);  	 
+		System.out.println("Enter username");
+		String userName = myObj.nextLine(); 
+		System.out.println("Enter digits for withdrawn");
+		Integer withdrawn = Integer.parseInt(myObj.nextLine()); 
+		
+		bnk.withdrawn(userName, withdrawn);
+		    
+		    
+		    
+	}
+
+}

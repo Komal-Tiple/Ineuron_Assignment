@@ -1,0 +1,49 @@
+package com.jdbc.demo;
+
+import java.sql.*;
+
+public class JDBCConnection {
+	 public void jdbcConnection() {
+	        // Database credentials
+	        String url = "jdbc:mysql://localhost:3306/test";
+	        String username = "your_username";
+	        String password = "your_password";
+
+	        // SQL query
+	        String query = "SELECT * FROM course";
+
+	        try {
+	            // Establish a connection to the database
+	            Connection connection = DriverManager.getConnection(url, username, password);
+
+	            // Create a statement object
+	            Statement statement = connection.createStatement();
+
+	            // Execute the query and get the result set
+	            ResultSet resultSet = statement.executeQuery(query);
+
+	            // Iterate over the result set and display the data
+	            while (resultSet.next()) {
+	                int id = resultSet.getInt("id");
+	                String name = resultSet.getString("description");
+	                int age = resultSet.getInt("title");
+
+	                System.out.println("ID: " + id + ", Description: " + name + ", Title: " + age);
+	            }
+
+	            // Close the resources
+	            resultSet.close();
+	            statement.close();
+	            connection.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+}
+
+
+
+
+
+   
+

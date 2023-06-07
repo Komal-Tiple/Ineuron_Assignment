@@ -1,0 +1,13 @@
+package com.jdbc.connection;
+
+public class Connection {
+
+	public void createConnection() {
+		try {
+        	Class.forName("com.mysql.jdbc.Driver");
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

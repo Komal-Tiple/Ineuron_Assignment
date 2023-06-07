@@ -1,0 +1,48 @@
+package com.jdbc;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Start {
+
+	static Connection connection;
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("Welcome");
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		while (true) {
+			System.out.println("Press 1 to add course");
+			System.out.println("Press 2 to delete course");
+			System.out.println("Press 3 to display course");
+			System.out.println("Press 4 to update course");
+			System.out.println("Press 5 to exit..");
+			int c = Integer.parseInt(br.readLine());
+
+			if (c == 1) {
+				// add course
+				System.out.println("Enter course name");
+				String title = br.readLine();
+				System.out.println("Enter course description");
+				String title = br.readLine();
+			} else if (c == 2) {
+				// delete course
+			} else if (c == 3) {
+				// display course
+			} else if (c == 4) {
+				// update course
+			} else {
+
+			}
+
+		}
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.java.assessment.question6;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StreamApi {
+
+	List<Integer> num = new ArrayList<>();
+	for(int i=0;i<=100000000;i++) {
+		num.add(i);
+	}
+}

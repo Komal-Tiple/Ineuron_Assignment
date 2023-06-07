@@ -1,0 +1,53 @@
+package com.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+
+public class Start {
+
+	static Connection connection;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Welcome");
+
+//Database credentials
+		String url = "jdbc:mysql://localhost:3306/test";
+		String username = "root";
+		String password = "";
+
+// SQL query
+		String query = "SELECT * FROM course";
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		
+			 connection = DriverManager.getConnection(url, username, password);
+			
+			Statement statement = connection.createStatement();
+
+			ResultSet resultSet = statement.executeQuery(query);
+
+			while (resultSet.next()) {
+				int id = resultSet.getInt("id");
+				String name = resultSet.getString("description");
+				int age = resultSet.getInt("title");
+
+				System.out.println("ID: " + id + ", Name: " + name + ", Age: " + age);
+			}
+
+			// Close the resources
+			resultSet.close();
+			statement.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

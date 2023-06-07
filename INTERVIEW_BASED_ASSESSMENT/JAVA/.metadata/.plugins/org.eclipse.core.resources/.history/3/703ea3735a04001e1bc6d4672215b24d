@@ -1,0 +1,86 @@
+package com.jdbc.Operation;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.jdbc.connection.JdbcConn;
+
+
+
+
+public class CRUDOperations {
+	public static boolean insert(CourseBean course) {
+
+		boolean f =false;
+		if(course.getTitle().equals("") &&course.getDesc().equals("")) {
+			try {
+				
+				JdbcConn cp = new JdbcConn();
+				Connection con = cp.createConnection();
+				
+				String q = "insert into course(title, description) values(?,?)";
+				
+				PreparedStatement psmt = con.prepareStatement(q);
+				
+				psmt.setString(1, course.getTitle());
+				psmt.setString(2, course.getDesc());
+				
+				psmt.executeUpdate();
+				f=true;
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				return f;
+		}
+		return f;
+		
+	}
+
+	public static boolean delete(int courseId) {
+	
+		boolean f =false;
+		try {
+		JdbcConn cp = new JdbcConn();
+		Connection con = cp.createConnection();
+		
+		String q = "delete from course where id=?";
+		
+		PreparedStatement psmt = con.prepareStatement(q);
+		
+		psmt.setInt(1, courseId);
+		
+		
+		psmt.executeUpdate();
+		f=true;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return f;
+		
+	}
+	
+	public static boolean update(CourseBean course) {
+		
+		boolean f =false;
+		try {
+		JdbcConn cp = new JdbcConn();
+		Connection con = cp.createConnection();
+		
+		String q = "UPDATE course SET title = ?, description = ? WHERE id = ?";
+		
+		PreparedStatement psmt = con.prepareStatement(q);
+		
+		psmt.setString(1, course.getTitle());
+		psmt.setString(2, course.getDesc());
+		psmt.setInt(3, course.getId());
+		
+		psmt.executeUpdate();
+		f=true;
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return f;
+		
+	}
+}

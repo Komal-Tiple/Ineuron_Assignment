@@ -1,0 +1,73 @@
+package com.java.assessment.question4;
+
+import java.util.Scanner;
+
+public class BankServer {
+
+
+		
+		
+		    
+		    // Initial balance $100
+		    int total = 100;
+		 
+		    // Money withdrawal method. Withdraw only if
+		    // total money greater than or equal to the money
+		    // requested for withdrawal
+		 
+		    // Method
+		    // To withdraw money
+		    public void withdrawn(String name, int withdrawal)
+		    {
+		        if (total >= withdrawal) {
+		            System.out.println(name + " withdrawn "
+		                               + withdrawal);
+		 
+		            total = total - withdrawal;
+		            System.out.println("Balance after withdrawal: "
+		                               + total);
+		            // Making the thread sleep for 1 second after
+		            // each withdrawal
+		 
+		      
+		        }
+		 
+		        // If the money requested for withdrawal is greater
+		        // than the balance then deny transaction*/
+		        else {
+		 
+		            // Print statements
+		            System.out.println(name
+		                               + " you can not withdraw "
+		                               + withdrawal);
+		 
+		            System.out.println("your balance is: " + total);
+		 
+		            // Making the thread sleep for 1 second after
+		            // each transaction failure
+		 
+		            // Try block to check for exceptions
+		           
+		        }
+		    }
+		 
+		    // Method - to deposit money
+		    // Accept money whenever deposited
+		   public void deposit(String name, int deposit)
+		    {
+		        System.out.println(name + " deposited " + deposit);
+		        total = total + deposit;
+		        System.out.println("Balance after deposit: "
+		                           + total);
+		        // Making the thread sleep for 1 second after
+		        // each deposit
+		       
+		    }
+		
+		    
+		    
+		    
+		    
+	
+
+}

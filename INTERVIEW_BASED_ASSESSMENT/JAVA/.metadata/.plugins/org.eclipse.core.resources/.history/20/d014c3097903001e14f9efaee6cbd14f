@@ -1,0 +1,33 @@
+package com.java.assessment.question8;
+
+public class TheadExample {
+
+	  public void EvenOdd() {
+	        Thread evenThread = new Thread(new EvenPrinter());
+	        Thread oddThread = new Thread(new OddPrinter());
+
+	        evenThread.start();
+	        oddThread.start();
+	    }
+
+	    static class EvenPrinter implements Runnable {
+	        @Override
+	        public void run() {
+	            for (int i = 2; i <= 10; i += 2) {
+	                System.out.println("Even number: " + i);
+	            }
+	        }
+	    }
+
+	    static class OddPrinter implements Runnable {
+	        @Override
+	        public void run() {
+	            for (int i = 1; i <= 9; i += 2) {
+	                System.out.println("Odd number: " + i);
+	            }
+	        }
+	    }
+}
+
+
+  

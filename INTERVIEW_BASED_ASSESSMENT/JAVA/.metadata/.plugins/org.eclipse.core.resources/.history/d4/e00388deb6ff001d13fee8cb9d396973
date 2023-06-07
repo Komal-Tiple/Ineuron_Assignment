@@ -1,0 +1,9 @@
+package com.java.assessment.question4;
+
+public class BankServer {
+
+	public BankServer() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
